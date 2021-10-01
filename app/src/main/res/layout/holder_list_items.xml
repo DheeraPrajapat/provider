@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+
+        <import type="android.view.View"/>
+        <variable
+            name="bean"
+            type="com.marius.valeyou_admin.data.beans.map.MapListModel" />
+
+        <variable
+            name="callback"
+            type="com.marius.valeyou_admin.di.base.adapter.SimpleRecyclerViewAdapter.SimpleCallback" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/white"
+        android:layout_marginStart="@dimen/dp10"
+        android:layout_marginEnd="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp5"
+        android:layout_marginBottom="@dimen/dp5"
+        app:cardCornerRadius="@dimen/dp10">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@+id/ll_list_items"
+                android:orientation="horizontal"
+                android:clickable="true"
+                android:transitionName="card"
+                android:foreground="?attr/selectableItemBackground"
+                android:layout_width="match_parent"
+                android:onClick="@{v->callback.onItemClick(v,bean)}"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="@dimen/dp60"
+                    android:layout_height="@dimen/dp60"
+                    app:cardCornerRadius="@dimen/dp10"
+                    android:layout_margin="@dimen/dp10">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/new_placeholder"
+                        app:job_image_src='@{bean.orderImages}'
+                       />
+
+
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="@dimen/dp5"
+                    android:layout_marginBottom="@dimen/dp5">
+
+                    <TextView
+                        style="@style/TextViewStyleSubTitleRegular"
+                        android:text='@{bean.title}'
+                        android:textColor="@color/black"
+                        />
+
+                    <TextView
+                        style="@style/TextViewStyleSubTitleRegular"
+                        android:textSize="@dimen/sp10"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="@dimen/dp5"
+                        android:ellipsize="end"
+                        android:maxLines="3"
+                        android:layout_marginBottom="@dimen/dp3"
+                        android:textColor="@color/edit_text"
+                        android:text="@{bean.description}"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/sfpro_regular"
+                        android:text='@{bean.distance+" "+ "KM Away"}'
+                        android:textSize="@dimen/sp10"
+                        android:layout_alignParentEnd="true"
+                        android:drawableLeft="@drawable/ic_profile_sidemenu_icon"
+                        android:drawablePadding="@dimen/dp5"
+                        android:textColor="@color/edit_text"
+                        android:layout_marginEnd="@dimen/dp10" />
+
+                    <ImageView
+                        android:id="@+id/img_check_bid"
+                        android:layout_width="20sp"
+                        android:layout_height="20dp"
+                        android:visibility="@{bean.bid_price==0?View.INVISIBLE : View.VISIBLE}"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="5dp"
+                        android:src="@android:drawable/checkbox_on_background"
+                        android:layout_gravity="right"/>
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/bid_tag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/dp5"
+                android:paddingLeft="@dimen/dp10"
+                android:paddingRight="10dp"
+                android:gravity="center"
+                android:paddingBottom="@dimen/dp5"
+                android:paddingStart="@dimen/dp5"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="@dimen/dp5"
+                android:text='@{bean.endPrice+" BRL "}'
+                android:paddingEnd="@dimen/dp2"
+                android:textColor="@color/black"
+                android:textSize="@dimen/sp10"
+                android:background="@color/grey_light1" />
+
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

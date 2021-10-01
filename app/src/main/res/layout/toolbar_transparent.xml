@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View"/>
+        <variable
+            name="check"
+            type="boolean" />
+
+        <variable
+            name="vm"
+            type="com.marius.valeyou_admin.di.base.viewmodel.BaseActivityViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height">
+
+        <ImageView
+            android:id="@+id/image_Back"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="?selectableItemBackground"
+            android:onClick="@{()->vm.onBack()}"
+            android:padding="@dimen/dp15"
+            android:src="@drawable/ic_back_icon" />
+
+        <TextView
+            android:id="@+id/tv_title"
+            style="@style/TextViewStyleTitleMedium"
+            android:layout_centerInParent="true"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/tv_two"
+            style="@style/TextViewStyleTitleMedium"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:text="Edit Profile"
+            android:layout_marginEnd="@dimen/dp10"
+            android:paddingTop="@dimen/dp10"
+            android:onClick="@{v->vm.onClick(v)}"
+            android:foreground="?selectableItemBackground"
+            android:visibility="@{check?View.VISIBLE:View.GONE}"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+</layout>

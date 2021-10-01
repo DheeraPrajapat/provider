@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="vm"
+            type="com.marius.valeyou_admin.ui.fragment.newhome.NewHomeFragmentVM" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/dp10">
+
+
+        <com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar
+            android:id="@+id/rangeSeekbar3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:corner_radius="10"
+            android:layout_marginTop="@dimen/dp20"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10dp"
+            android:layout_below="@id/tv_one"
+            app:min_value="0"
+            app:max_value="500"
+            android:padding="@dimen/dp10"
+            app:gap="20"
+            app:bar_color="@color/grey"
+            app:bar_highlight_color="@color/colorPrimary"
+            app:left_thumb_color="@color/colorPrimary"
+            app:right_thumb_color="@color/colorPrimary"
+            app:left_thumb_color_pressed="@color/colorPrimary"
+            app:right_thumb_color_pressed="@color/colorPrimary"
+            app:data_type="_integer"/>
+
+        <LinearLayout
+            android:id="@+id/values"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/dp10"
+            android:layout_below="@+id/rangeSeekbar3"
+            >
+
+            <TextView
+                android:id="@+id/startRate"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="10sp"
+                android:textAlignment="textStart"
+                android:padding="@dimen/dp10"
+                android:text="0 Brl"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/endRate"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginRight="@dimen/dp10"
+                android:textAlignment="textEnd"
+                android:padding="@dimen/dp10"
+                android:text="500 Brl"
+                android:layout_height="wrap_content"/>
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</layout>

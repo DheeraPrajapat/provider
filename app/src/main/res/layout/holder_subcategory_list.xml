@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="bean"
+            type="com.marius.valeyou_admin.data.beans.categoriesBean.CategoryDataBean.SubCategoriesBean" />
+        <variable
+            name="callback"
+            type="com.marius.valeyou_admin.di.base.adapter.SimpleRecyclerViewAdapter.SimpleCallback" />
+    </data>
+    <RelativeLayout
+        android:id="@+id/rl_items"
+        android:onClick="@{v->callback.onItemClick(v,bean)}"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            style="@style/TextViewStyleSubTitleRegular"
+            android:text="@{bean.name}"
+            android:layout_toRightOf="@+id/iv_icon"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/dp10"
+            android:layout_toLeftOf="@+id/iv_checked"
+            android:textColor="@color/edit_text" />
+
+        <ImageView
+            android:id="@+id/iv_checked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@{ bean.check ? @drawable/ic_checkmark_selected : @drawable/ic_checkmark_unselect}"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/dp10"
+            android:layout_alignParentEnd="true"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp1"
+            android:background="@color/divider"/>
+    </RelativeLayout>
+</layout>

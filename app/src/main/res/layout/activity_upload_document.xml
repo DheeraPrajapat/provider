@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.marius.valeyou_admin.ui.activity.signup.uploaddocument.UploadDocumentActivityVM" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="2">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/back_gradient_view" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:paddingTop="@dimen/dp40"
+                android:layout_below="@+id/cv_camera">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/TextViewStyleSubTitleRegular"
+                    android:text="Social Security Number"
+                    android:layout_marginStart="@dimen/dp10"
+                    android:textColor="@color/grey"/>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/cv_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="@dimen/dp5"
+                    android:layout_margin="@dimen/dp10"
+                    android:elevation="@dimen/dp5">
+
+                    <EditText
+                        android:id="@+id/et_security_number"
+                        style="@style/EditText_Regular"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/grey"
+                        android:inputType="numberDecimal"
+                        android:padding="@dimen/dp15"
+                        android:hint="XXXX-XX-XXXX" />
+
+                </androidx.cardview.widget.CardView>
+
+                <Button
+                    android:id="@+id/btn_submit"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp40"
+                    style="@style/RectangleButtonStyle"
+                    android:text="@string/submit"
+                    android:layout_marginStart="@dimen/dp10"
+                    android:layout_marginEnd="@dimen/dp10"
+                    android:layout_marginTop="@dimen/dp40"
+                    android:textColor="@color/white"
+                    android:foreground="?selectableItemBackground"
+                    android:textSize="@dimen/sp14" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp24">
+
+            <include android:id="@+id/header"
+                layout="@layout/toolbar_layout"
+                app:vm="@{vm}"/>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_file"
+            android:layout_below="@+id/ll_header"
+            android:layout_width="@dimen/dp300"
+            android:layout_height="@dimen/dp180"
+            android:src="@drawable/ic_file_upload"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp10"/>
+
+        <TextView
+            android:id="@+id/tv_one"
+            android:layout_below="@+id/iv_file"
+            android:layout_centerHorizontal="true"
+            style="@style/TextViewStyleSubTitleRegular"
+            android:textSize="@dimen/sp10"
+            android:layout_marginTop="@dimen/dp10"
+            android:text="You need to upload your"
+            android:textColor="@color/white"/>
+
+        <TextView
+            android:layout_below="@+id/tv_one"
+            android:layout_centerHorizontal="true"
+            style="@style/TextViewStyleSubTitleRegular"
+            android:textSize="@dimen/sp16"
+            android:text="Driving License"
+            android:textColor="@color/white"/>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_camera"
+            android:layout_width="@dimen/dp200"
+            android:layout_height="@dimen/dp44"
+            android:layout_centerInParent="true"
+            app:cardBackgroundColor="@color/white"
+            app:cardElevation="0dp"
+            app:cardCornerRadius="@dimen/dp22">
+
+            <TextView
+                android:id="@+id/btn_camera"
+                style="@style/TextViewStyleSubTitleRegular"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/back_round_corner1"
+                android:backgroundTint="@color/colorPrimaryDark"
+                android:drawableLeft="@drawable/ic_camera_icon"
+                android:gravity="center"
+                android:paddingStart="@dimen/dp20"
+                android:text="Use Camera"
+                android:layout_margin="@dimen/dp2"
+                android:textColor="@color/white" />
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+</layout>

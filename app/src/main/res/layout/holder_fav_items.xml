@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+
+        <variable
+            name="bean"
+            type="com.marius.valeyou_admin.data.beans.favourites.MyFavouritesModel" />
+
+        <variable
+            name="callback"
+            type="com.marius.valeyou_admin.di.base.adapter.SimpleRecyclerViewAdapter.SimpleCallback" />
+    </data>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_fav"
+                android:onClick="@{v->callback.onItemClick(v,bean)}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="@dimen/dp10"
+                android:layout_marginStart="@dimen/dp20"
+                android:layout_marginTop="@dimen/dp30"
+                android:layout_marginEnd="@dimen/dp10"
+                android:layout_marginBottom="@dimen/dp5">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="@dimen/dp60"
+                        android:layout_height="@dimen/dp60"
+                        app:cardCornerRadius="@dimen/dp10"
+                        android:layout_margin="@dimen/dp10">
+
+                        <ImageView
+                            android:id="@+id/image"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="fitXY"
+                            app:job_fav_src='@{bean.order.orderImages}'
+                            android:background="@color/grey_light" />
+
+                    </androidx.cardview.widget.CardView>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/dp5">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                style="@style/TextViewStyleSubTitleRegular"
+                                android:text='@{ bean.order.title}'
+                                android:textSize="@dimen/dp15"
+                                />
+
+                            <TextView
+                                style="@style/TextViewStyleSubTitleRegular"
+                                android:text='@{bean.order.distance+" miles away"}'
+                                android:textSize="@dimen/sp13"
+                                android:visibility="visible"
+                                android:textColor="@color/edit_text"
+                                />
+
+                            <TextView
+                                style="@style/TextViewStyleSubTitleRegular"
+                                android:text='@{bean.order.description}'
+                                android:textSize="@dimen/sp13"
+                                android:ellipsize="end"
+                                android:maxLines="3"
+                                android:layout_marginStart="@dimen/dp55"
+                                android:textColor="@color/edit_text"
+                                android:padding="@dimen/dp5"
+                                />
+
+
+                        </LinearLayout>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_fav_icon"
+                            android:layout_alignParentEnd="true"
+                            android:layout_margin="@dimen/dp10"
+                            />
+
+                    </RelativeLayout>
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>

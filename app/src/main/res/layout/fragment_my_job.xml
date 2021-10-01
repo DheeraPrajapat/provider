@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="check"
+            type="boolean" />
+        <variable
+            name="value"
+            type="Integer" />
+
+        <variable
+            name="vm"
+            type="com.marius.valeyou_admin.ui.fragment.myjob.MyJobFragmentVM" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/back_gradient_view">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:layout_marginTop="@dimen/dp120"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp100"
+                android:background="@color/white"
+                android:layout_marginTop="@dimen/dp80"
+                android:rotation="-10"
+                android:layout_marginStart="-50dp"
+                android:layout_marginEnd="-50dp"
+                />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dp70"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp10"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <LinearLayout
+                    android:id="@+id/ll_one"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:foreground="?selectableItemBackground"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    android:layout_weight="1">
+
+                    <TextView
+                        style="@style/TextViewStyleTitleMedium"
+                        android:text="@string/my_jobs"
+                        android:maxLength="7"
+                        android:ellipsize="end"
+                        android:textColor="@{value==0?@color/colorPrimary:@color/grey_light}"
+                        android:padding="@dimen/dp10"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp2"
+                        android:background="@{value==0?@color/colorPrimary:@color/grey_light}"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llPlacedBids"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:foreground="?selectableItemBackground"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    android:layout_weight="1">
+
+                    <TextView
+                        style="@style/TextViewStyleTitleMedium"
+                        android:text="@string/placed_bids"
+                        android:maxLength="6"
+                        android:ellipsize="end"
+                        android:textColor="@{value==1?@color/colorPrimary:@color/grey_light}"
+                        android:padding="@dimen/dp10"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp2"
+                        android:background="@{value==1?@color/colorPrimary:@color/grey_light}"
+                        />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llRejectedBids"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:foreground="?selectableItemBackground"
+                    android:onClick="@{v->vm.onClick(v)}"
+                    android:layout_weight="1">
+
+                    <TextView
+                        style="@style/TextViewStyleTitleMedium"
+                        android:text="@string/rejected_bids"
+                        android:textColor="@{value==2?@color/colorPrimary:@color/grey_light}"
+                        android:maxLength="7"
+                        android:ellipsize="end"
+                        android:padding="@dimen/dp10"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp2"
+                        android:background="@{value==2?@color/colorPrimary:@color/grey_light}"
+                        />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="right"
+                    android:layout_weight="1">
+
+                    <ImageView
+                        android:id="@+id/iv_filter"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:clickable="true"
+                        android:visibility="@{value==0?View.VISIBLE:View.GONE}"
+                        android:onClick="@{v->vm.onClick(v)}"
+                        android:foreground="?attr/selectableItemBackground"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_filter_icon"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+           <FrameLayout
+               android:layout_width="match_parent"
+               android:padding="10dp"
+               android:layout_height="match_parent">
+
+               <androidx.recyclerview.widget.RecyclerView
+                   android:id="@+id/rv_my_jobs"
+                   android:layout_marginBottom="50dp"
+                   android:layout_width="match_parent"
+                   android:visibility="@{value==0?View.VISIBLE:View.GONE}"
+                   android:layout_height="match_parent"
+                   />
+
+                             <androidx.recyclerview.widget.RecyclerView
+                   android:id="@+id/rv_bids"
+                   android:layout_width="match_parent"
+                   android:visibility="@{value==1?View.VISIBLE:View.GONE}"
+                   android:layout_height="match_parent"/>
+
+               <androidx.recyclerview.widget.RecyclerView
+                   android:id="@+id/rv_rejected_bids"
+                   android:layout_width="match_parent"
+                   android:visibility="@{value==2?View.VISIBLE:View.GONE}"
+                   android:layout_height="match_parent"/>
+
+
+               <TextView
+                   android:id="@+id/tv_no_job"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:visibility="gone"
+                   android:layout_gravity="center"
+                   android:text="@string/no_record_found"/>
+
+
+           </FrameLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+        <FrameLayout
+            android:layout_width="@dimen/dp50"
+            android:layout_height="@dimen/dp50"
+            android:layout_gravity="right"
+            android:layout_alignParentEnd="true">
+
+            <ImageView
+                android:id="@+id/notificationIcon"
+                android:layout_width="@dimen/dp50"
+                android:layout_height="@dimen/dp50"
+                android:src="@drawable/ic_notification_icon"
+                android:foreground="?selectableItemBackground"
+                android:onClick="@{v->vm.onClick(v)}"
+                android:padding="@dimen/dp15"
+                android:tint="@color/white"
+                />
+
+            <TextView
+                android:id="@+id/notificationCount"
+                android:layout_width="@dimen/dp20"
+                android:layout_height="@dimen/dp20"
+                android:layout_gravity="bottom|right"
+                android:textAlignment="center"
+                android:visibility="gone"
+                android:padding="1dp"
+                android:textSize="@dimen/dp13"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="@dimen/dp3"
+                android:textColor="@color/white"
+                android:fontFamily="@font/sfpro_regular"
+                android:background="@drawable/badge_shape"
+                />
+
+        </FrameLayout>
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:id="@+id/spin_kit"
+            style="@style/SpinKitView.Large.ThreeBounce"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="300dp"
+            android:layout_marginLeft="150dp"
+            android:visibility="@{check?View.VISIBLE:View.GONE}"
+            app:SpinKit_Color="?textColorTheme" />
+
+    </RelativeLayout>
+
+</layout>

@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="android.view.View"/>
+
+        <variable
+            name="check"
+            type="boolean" />
+
+        <variable
+            name="bean"
+            type="com.marius.valeyou_admin.data.beans.jobs.JobDetailModel" />
+
+        <variable
+            name="vm"
+            type="com.marius.valeyou_admin.ui.activity.RatingActivityVM" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp50"
+                android:background="@color/colorPrimary">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:background="?selectableItemBackground"
+                    android:onClick="@{()->vm.onBack()}"
+                    android:padding="@dimen/dp15"
+                    android:tint="@color/white"
+                    android:src="@drawable/ic_back_icon"
+                    android:layout_height="match_parent"/>
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    style="@style/TextViewStyleTitleMedium"
+                    android:textColor="@color/white"
+                    android:text="@string/rating"
+                    android:layout_gravity="center"/>
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/back_gradient_view"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:layout_marginTop="@dimen/dp150"
+                        />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp100"
+                        android:background="@color/white"
+                        android:layout_marginTop="@dimen/dp100"
+                        android:rotation="-10"
+                        android:layout_marginStart="-50dp"
+                        android:layout_marginEnd="-50dp"
+                        />
+
+                </RelativeLayout>
+
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/iv_logo"
+                    app:cardCornerRadius="@dimen/dp10"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:layout_marginStart="@dimen/sp20"
+                    android:layout_marginEnd="@dimen/dp20"
+                    android:layout_marginBottom="@dimen/dp10">
+
+                    <androidx.core.widget.NestedScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <RelativeLayout
+                                android:id="@+id/rl_one"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/back_round_corner2"
+                                android:padding="@dimen/dp10"
+                                android:layout_margin="@dimen/dp5"
+                                android:backgroundTint="@color/white"
+                                android:elevation="@dimen/dp2">
+
+                                <androidx.cardview.widget.CardView
+                                    android:id="@+id/iv_one"
+                                    android:layout_width="@dimen/dp70"
+                                    android:layout_height="@dimen/dp70"
+                                    app:cardCornerRadius="@dimen/dp10"
+                                    android:visibility="visible"
+                                    android:layout_margin="@dimen/dp10">
+                                    <ImageView
+                                        android:id="@+id/job_image"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:scaleType="fitXY"
+                                        />
+
+                                </androidx.cardview.widget.CardView>
+
+
+                                <LinearLayout
+                                    android:layout_toRightOf="@id/iv_one"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:orientation="vertical">
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal">
+                                        <TextView
+                                            android:id="@+id/title"
+                                            android:layout_width="0dp"
+                                            android:layout_weight="1"
+                                            android:text='@{bean.title}'
+                                            style="@style/TextViewStyleSubTitleRegular"
+                                            android:layout_marginTop="2dp"
+                                            android:textSize="15dp"
+                                            />
+
+                                    </LinearLayout>
+
+                                    <TextView
+                                        android:id="@+id/location"
+                                        android:text='@{bean.city}'
+                                        style="@style/TextViewStyleSubTitleRegular"
+                                        android:textSize="@dimen/sp12"
+                                        android:textColor="@color/edit_text"
+                                        android:drawableLeft="@drawable/ic_miles_icon"
+                                        android:drawablePadding="@dimen/dp5"
+                                        />
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical">
+
+
+                                        <TextView
+                                            android:id="@+id/startDate"
+                                            style="@style/TextViewStyleSubTitleRegular"
+                                            android:textSize="@dimen/sp12"
+                                            android:textColor="@color/edit_text"
+                                            android:drawableLeft="@drawable/ic_calendar_icon"
+                                            android:drawablePadding="@dimen/dp5"
+                                            />
+
+
+                                        <TextView
+                                            android:id="@+id/endDate"
+                                            style="@style/TextViewStyleSubTitleRegular"
+                                            android:textSize="@dimen/sp12"
+                                            android:textColor="@color/edit_text"
+                                            android:drawableLeft="@drawable/ic_calendar_icon"
+                                            android:drawablePadding="@dimen/dp5"
+                                            />
+
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            style="@style/TextViewStyleSubTitleRegular"
+                                            android:text="@string/job_status"
+                                            android:textColor="@color/edit_text" />
+
+                                        <TextView
+                                            android:id="@+id/statusText"
+                                            style="@style/TextViewStyleSubTitleRegular"
+                                            android:textColor="@color/green"
+                                            android:job_status='@{bean.status+""}'
+                                            android:layout_marginStart="@dimen/dp5"/>
+                                    </LinearLayout>
+
+
+                                </LinearLayout>
+
+
+
+                            </RelativeLayout>
+
+
+                        </FrameLayout>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/description"
+                            android:layout_marginLeft="@dimen/dp20"
+                            android:fontFamily="@font/sfpro_regular"
+                            android:textColor="@color/black"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp20"
+                            android:text='@{bean.description}'
+                            android:fontFamily="@font/sfpro_regular"
+                          />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/category"
+                            android:layout_marginLeft="@dimen/dp20"
+                            android:fontFamily="@font/sfpro_regular"
+                            android:textColor="@color/black"/>
+
+                        <TextView
+                            android:id="@+id/txtCategory"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/dp20"
+                            android:fontFamily="@font/sfpro_regular"
+                            />
+
+                        <TextView
+                            android:id="@+id/btn_invoice"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/dp10"
+                            android:layout_gravity="center_vertical"
+                            android:onClick="@{(v)->vm.onClick(v)}"
+                            android:text="@string/view_invoice"
+                            android:gravity="center_horizontal"
+                            android:paddingRight="20dp"
+                            android:textAlignment="center"
+                            android:paddingLeft="@dimen/dp20"
+                            android:layout_marginTop="@dimen/dp20"
+                            android:textColor="@color/colorPrimary"
+                            android:foreground="?selectableItemBackground"
+                            android:textSize="@dimen/sp14" />
+
+
+
+
+                        <androidx.cardview.widget.CardView
+                           android:id="@+id/cv_user_rating"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:visibility="gone"
+                            app:cardCornerRadius="@dimen/dp10">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="@dimen/dp10"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="50dp"
+                                    android:layout_height="60dp">
+                                
+                            <com.marius.valeyou_admin.util.glide.CircleImageView
+                               android:id="@+id/userImg"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:src="@drawable/placeholder"
+                                />
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="10dp"
+                                    android:orientation="vertical">                >
+
+                                    <TextView
+                                        android:id="@+id/userName"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Sanjeev Sharma"
+                                        android:textColor="@color/black"
+                                        />
+                                    <TextView
+                                        android:id="@+id/userRateDes"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Sanjeev Sharma"
+                                        android:textSize="12dp"
+                                        />
+
+
+                                    <RatingBar
+                                        style="@style/Widget.AppCompat.RatingBar.Small"
+                                        android:id="@+id/user_rating"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"/>
+
+
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                      <androidx.cardview.widget.CardView
+                            android:id="@+id/cv_my_rating"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:visibility="gone"
+                            app:cardCornerRadius="@dimen/dp10">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="@dimen/dp10"
+                                android:orientation="horizontal">
+
+                                <LinearLayout
+                                    android:layout_width="@dimen/dp50"
+                                    android:layout_height="60dp">
+
+                                <com.marius.valeyou_admin.util.glide.CircleImageView
+                                    android:id="@+id/my_image"
+                                    android:layout_width="50dp"
+                                    android:layout_height="50dp"
+                                    android:src="@drawable/placeholder"
+                                    />
+
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="center"
+                                    android:layout_marginLeft="10dp"
+                                    android:orientation="vertical">                >
+
+                                    <TextView
+                                        android:id="@+id/my_name"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                       android:textColor="@color/black"
+                                        android:text="My Review"
+                                        />
+
+                                    <TextView
+                                        android:id="@+id/myRateDes"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="Sanjeev Sharma"
+                                        android:textSize="12dp"
+                                        />
+
+
+
+                                    <RatingBar
+                                        style="@style/Widget.AppCompat.RatingBar.Small"
+                                        android:id="@+id/my_rating"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="5dp"/>
+
+
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+
+
+                        <LinearLayout
+                            android:id="@+id/ll_rating"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:visibility="gone"
+                            android:padding="10dp">
+
+
+                            <com.marius.valeyou_admin.util.glide.CircleImageView
+                                android:id="@+id/user_image"
+                                android:layout_width="70dp"
+                                android:layout_height="70dp"
+                                android:src="@drawable/placeholder"
+                                android:layout_gravity="center_horizontal"/>
+
+                            <TextView
+                                android:id="@+id/tvName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="15dp"
+                                android:textColor="@color/black"
+                                android:layout_marginTop="@dimen/dp10"
+                                android:layout_gravity="center_horizontal"
+                                android:text='@{bean.user.firstName+" "+bean.user.lastName}'/>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="12dp"
+                                android:layout_gravity="center_horizontal"
+                                android:text="@string/job_completed"/>
+
+                            <RatingBar
+                                android:id="@+id/rb_rating"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="5dp"/>
+
+
+                            <EditText
+                                android:id="@+id/tv_description"
+                                android:layout_width="match_parent"
+                                android:layout_height="130dp"
+                                android:hint="@string/write_a_review"
+                                android:padding="10sp"
+                                android:textAlignment="textStart"
+                                android:gravity="left|top"
+                                android:textColor="@color/black"
+                                android:background="@drawable/edittext_skyblue_stroke"
+                                android:layout_marginTop="@dimen/dp15"/>
+
+
+                            <Button
+                                android:id="@+id/btn_submit"
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/dp40"
+                                android:layout_gravity="center_vertical"
+                                style="@style/RectangleButtonStyle"
+                                android:onClick="@{(v)->vm.onClick(v)}"
+                                android:text="@string/submit"
+                                android:layout_marginTop="@dimen/dp20"
+                                android:textColor="@color/white"
+                                android:foreground="?selectableItemBackground"
+                                android:textSize="@dimen/sp14" />
+
+
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+                    </androidx.core.widget.NestedScrollView>
+
+                </androidx.cardview.widget.CardView>
+
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+
+</layout>

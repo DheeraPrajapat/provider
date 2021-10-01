@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="bean"
+            type="com.marius.valeyou_admin.data.beans.base.MoreBean" />
+
+        <variable
+            name="callback"
+            type="com.marius.valeyou_admin.di.base.adapter.SimpleRecyclerViewAdapter.SimpleCallback" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_items"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#FAFAFA"
+        android:foreground="?selectableItemBackground"
+        android:onClick="@{v->callback.onItemClick(v,bean)}"
+        android:layout_marginBottom="@dimen/dp1">
+
+        <RelativeLayout
+            android:id="@+id/card_view"
+            android:layout_width="match_parent"
+            android:gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/imgMain"
+                android:layout_width="@dimen/dp40"
+                android:layout_height="@dimen/dp40"
+                android:layout_margin="@dimen/dp10"
+                app:cardCornerRadius="@dimen/dp20">
+
+                <ImageView
+                    android:layout_width="@dimen/dp25"
+                    android:layout_height="@dimen/dp25"
+                    app:simpleResourse="@{bean.image}"
+                    android:layout_gravity="center"
+                    android:padding="@dimen/dp2"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:textColor="@color/grey"
+                android:ellipsize="marquee"
+                android:layout_centerVertical="true"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:layout_toLeftOf="@+id/imgBack"
+                android:fadingEdge="horizontal"
+                android:focusable="true"
+                android:singleLine="true"
+                android:text="@{bean.name}"
+                android:layout_toRightOf="@+id/imgMain"
+                android:layout_marginStart="@dimen/dp10"
+                android:layout_marginEnd="@dimen/dp10"
+                android:textSize="@dimen/sp14"
+                style="@style/TextViewStyleTitleMedium" />
+
+            <ImageView
+                android:id="@+id/imgBack"
+                android:layout_width="@dimen/dp20"
+                android:rotation="180"
+                android:layout_alignParentRight="true"
+                android:layout_gravity="right"
+                android:layout_height="@dimen/dp20"
+                android:padding="@dimen/dp2"
+                android:visibility="gone"
+                android:layout_centerVertical="true"
+                android:src="@drawable/ic_back"/>
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

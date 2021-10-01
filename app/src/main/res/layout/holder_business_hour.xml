@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+
+        <variable
+            name="bean"
+            type="com.marius.valeyou_admin.data.beans.profilebean.ProfileModel.BusinessHoursBean" />
+
+        <variable
+            name="callback"
+            type="com.marius.valeyou_admin.di.base.adapter.SimpleRecyclerViewAdapter.SimpleCallback" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/dp5">
+
+        <TextView
+            style="@style/TextViewStyleSubTitleRegular"
+            android:text='@{bean.day}'
+            android:textColor="@color/grey"
+            android:padding="@dimen/dp10"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="@dimen/dp5"
+            android:layout_margin="@dimen/dp5">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ll_time_item"
+                android:layout_width="match_parent"
+                android:onClick="@{v->callback.onItemClick(v,bean)}"
+                android:layout_height="@dimen/dp40"
+                >
+
+                <ImageView
+                    android:layout_width="@dimen/dp40"
+                    android:layout_height="@dimen/dp40"
+                    android:padding="5sp"
+                    android:src="@drawable/ic_clock"
+                    android:background="@color/divider"/>
+
+                <TextView
+                    android:text='@{bean.fromTime + " - " + bean.toTime}'
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    style="@style/TextViewStyleSubTitleRegular"
+                    android:textColor="@color/edit_text"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="@dimen/dp10"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5sp"
+                    android:src="@drawable/ic_arrow_down_icon"
+                   />
+
+
+            </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/ll_editTimeView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:gravity="center_horizontal"
+                    >
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        app:cardCornerRadius="5sp"
+                        android:padding="5sp"
+                        android:layout_margin="5sp"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="5sp"
+                            android:layout_marginLeft="5sp"
+                            android:layout_marginRight="5sp"
+                            android:paddingRight="5sp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="08"
+                            android:background="@drawable/blue_stroke"
+                            android:padding="7sp"
+                            android:textSize="15sp"
+                            android:textColor="@color/colorTextBlue"
+                            />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=":"
+                                android:layout_marginLeft="5sp"
+                                android:layout_marginRight="5sp"
+                                android:paddingTop="7sp"
+                                android:paddingBottom="7sp"
+                                android:textSize="25sp"
+                                android:textColor="@color/colorTextBlue"
+                                />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="08"
+                            android:background="@drawable/blue_stroke"
+                            android:padding="7sp"
+                            android:textSize="15sp"
+                            android:textColor="@color/colorTextBlue"
+                            />
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="AM"
+                                android:paddingTop="8sp"
+                                android:layout_marginLeft="2dp"
+                                android:textSize="12sp"
+                                android:textColor="@color/colorTextBlue"
+                                />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10sp"
+                        android:layout_marginRight="10sp"
+                        android:src="@drawable/ic_blue_forword_arrow"/>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="wrap_content"
+                        app:cardCornerRadius="5sp"
+                        android:padding="5sp"
+                        android:layout_margin="5sp"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="5sp"
+                            android:layout_marginLeft="5sp"
+                            android:layout_marginRight="5sp"
+                            android:paddingRight="5sp">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="08"
+                                android:background="@drawable/blue_stroke"
+                                android:padding="7sp"
+                                android:textSize="15sp"
+                                android:textColor="@color/colorTextBlue"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text=":"
+                                android:layout_marginLeft="5sp"
+                                android:layout_marginRight="5sp"
+                                android:paddingTop="7sp"
+                                android:paddingBottom="7sp"
+                                android:textSize="25sp"
+                                android:textColor="@color/colorTextBlue"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="08"
+                                android:background="@drawable/blue_stroke"
+                                android:padding="7sp"
+                                android:textSize="15sp"
+                                android:textColor="@color/colorTextBlue"
+                                />
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="AM"
+                                android:paddingTop="8sp"
+                                android:textSize="12sp"
+                                android:layout_marginLeft="2sp"
+                                android:textColor="@color/colorTextBlue"
+                                />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</layout>

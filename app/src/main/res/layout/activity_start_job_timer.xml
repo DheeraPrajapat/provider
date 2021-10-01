@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="check"
+            type="boolean" />
+
+
+        <variable
+            name="bean"
+            type="com.marius.valeyou_admin.data.beans.jobs.JobDetailModel" />
+
+
+        <variable
+            name="vm"
+            type="com.marius.valeyou_admin.ui.fragment.myjob.startjob.StartJobTimerActivityVM" />
+    </data>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/back_gradient_view">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:layout_marginTop="@dimen/dp150"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp100"
+                android:background="@color/white"
+                android:layout_marginTop="@dimen/dp100"
+                android:rotation="-10"
+                android:layout_marginStart="-50dp"
+                android:layout_marginEnd="-50dp"
+                />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/rl_one"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/back_round_corner2"
+                    android:padding="@dimen/dp10"
+                    android:layout_marginTop="70dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:backgroundTint="@color/white"
+                    android:elevation="@dimen/dp2">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/iv_one"
+                        android:layout_width="@dimen/dp70"
+                        android:layout_height="@dimen/dp70"
+                        app:cardCornerRadius="@dimen/dp10"
+                        android:visibility="visible"
+                        android:layout_margin="@dimen/dp10">
+                        <ImageView
+                            android:id="@+id/job_image"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="fitXY"
+                            />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <LinearLayout
+                        android:layout_toRightOf="@id/iv_one"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_weight="1"
+                                style="@style/TextViewStyleSubTitleRegular"
+                                android:layout_marginTop="2dp"
+                                android:text='@{bean.title}'
+                                android:textSize="15dp"
+                                />
+
+                            <TextView
+                                android:layout_below="@+id/iv_one"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/sfpro_bold"
+                                android:textColor="@color/black"
+                                android:layout_marginLeft="@dimen/dp10"
+                                android:textSize="18dp"
+                                />
+
+
+                        </LinearLayout>
+
+                        <TextView
+                            style="@style/TextViewStyleSubTitleRegular"
+                            android:textSize="@dimen/sp12"
+                            android:textColor="@color/edit_text"
+                            android:layout_marginTop="@dimen/dp5"
+                            android:drawableLeft="@drawable/ic_miles_icon"
+                            android:drawablePadding="@dimen/dp5"
+                            android:text='@{bean.city}' />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                            <TextView
+                                style="@style/TextViewStyleSubTitleRegular"
+                                android:text="@string/job_status"
+                                android:textColor="@color/edit_text"/>
+                            <TextView
+                                android:id="@+id/statusText"
+                                style="@style/TextViewStyleSubTitleRegular"
+                                android:textColor="@color/green"
+                                android:layout_marginStart="@dimen/dp5"/>
+                        </LinearLayout>
+
+
+
+
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/dp30">
+
+
+                <LinearLayout
+                    android:id="@+id/ll_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility='@{bean.jobType==0?View.GONE:View.VISIBLE}'
+                    android:layout_below="@+id/cv_top">
+
+                    <TextView
+                        style="@style/TextViewStyleSubTitleRegular"
+                        android:textSize="@dimen/sp14"
+                        android:textColor="@color/colorPrimary"
+                        android:text="@string/address"
+                        />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/dp13"
+                        android:layout_marginTop="5dp"
+                        android:text='@{bean.appartment+", "+bean.location}'
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/sfpro_regular"/>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_cat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility='@{bean.jobType==0?View.GONE:View.VISIBLE}'
+                    android:layout_below="@+id/cv_top">
+
+                    <TextView
+                        style="@style/TextViewStyleSubTitleRegular"
+                        android:textSize="@dimen/sp14"
+                        android:textColor="@color/colorPrimary"
+                        android:text="@string/category"
+                        />
+
+                    <TextView
+                        android:id="@+id/txtCategory"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/dp13"
+                        android:layout_marginTop="5dp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/sfpro_regular"/>
+
+
+                </LinearLayout>
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sfpro_regular"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/colorPrimary"
+                android:text="@string/description"/>
+
+                <TextView
+                    android:id="@+id/des"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text='@{bean.description}'
+                    android:fontFamily="@font/sfpro_regular"
+                    android:textColor="@color/grey"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sfpro_regular"
+                    android:textColor="@color/colorPrimary"
+                    android:text="@string/price"/>
+
+                <TextView
+                    android:id="@+id/bid_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text='@{bean.bid_price==0?bean.endPrice+" brl":bean.bid_price+" brl"}'
+                    android:fontFamily="@font/sfpro_regular"
+                    android:textColor="@color/grey"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/job_started_at"
+                    android:fontFamily="@font/sfpro_regular"
+                    android:textColor="@color/colorPrimary"/>
+
+                <TextView
+                    android:id="@+id/startTime"
+                    android:layout_width="match_parent"
+                    android:fontFamily="@font/sfpro_regular"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/grey"/>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_below="@+id/cv_two">
+
+                <Button
+                    android:id="@+id/btn_end_job"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/dp45"
+                    android:layout_gravity="center_vertical"
+                    style="@style/RectangleButtonStyle"
+                    android:onClick="@{(v)->vm.onClick(v)}"
+                    android:text="@string/end_job_title"
+                    android:layout_marginTop="@dimen/dp10"
+                    android:layout_margin="@dimen/dp10"
+                    android:textColor="@color/white"
+                    android:foreground="?selectableItemBackground"
+                    android:textSize="@dimen/sp14" />
+
+                <Button
+                    android:id="@+id/btn_chat"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dp45"
+                    android:layout_weight="1"
+                    android:layout_gravity="center_vertical"
+                    style="@style/RectangleButtonStyle"
+                    android:onClick="@{(v)->vm.onClick(v)}"
+                    android:text="@string/chat"
+                    android:visibility="visible"
+                    android:layout_margin="@dimen/dp10"
+                    android:background="@drawable/back_round_corner7"
+                    android:backgroundTint="?textColorTheme"
+                    android:foreground="?selectableItemBackground"
+                    android:textSize="@dimen/sp14" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+        <include android:id="@+id/header"
+            layout="@layout/toolbar_transparent"
+            app:vm="@{vm}"/>
+    </RelativeLayout>
+
+
+
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:id="@+id/spin_kit"
+            style="@style/SpinKitView.Large.ThreeBounce"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="300dp"
+            android:layout_marginLeft="180dp"
+            android:visibility="@{check?View.VISIBLE:View.GONE}"
+            app:SpinKit_Color="?textColorTheme" />
+
+
+
+
+
+
+</FrameLayout>
+
+
+</layout>

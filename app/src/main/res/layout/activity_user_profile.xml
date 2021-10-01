@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="check"
+            type="boolean" />
+
+        <variable
+            name="bean"
+            type="com.marius.valeyou_admin.data.beans.userprofile.UserProfileModel" />
+
+        <variable
+            name="vm"
+            type="com.marius.valeyou_admin.ui.activity.user_profile.UserProfileActivityVM" />
+
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:fillViewport="true"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/back_gradient_view"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:background="@color/colorPrimary"
+                android:layout_height="@dimen/toolbar_height">
+
+                <ImageView
+                    android:id="@+id/image_Back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="?selectableItemBackground"
+                    android:padding="@dimen/dp15"
+                    android:onClick="@{()->vm.onBack()}"
+                    android:src="@drawable/ic_back_icon"/>
+
+                <TextView
+                    android:id="@+id/tv_title"
+                    style="@style/TextViewStyleTitleMedium"
+                    android:layout_centerInParent="true"
+                    android:text="@string/profile"
+                    android:textColor="@color/white" />
+
+            </RelativeLayout>
+
+            <ImageView
+                android:id="@+id/profile_image"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp250"
+                android:transitionName="user_profile"
+                android:layout_below="@+id/toolbar"
+                android:scaleType="centerCrop"
+                app:profile_image='@{bean.image}'
+                />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/profile_image"
+                android:visibility="visible"
+                android:layout_marginBottom="-10dp"
+                >
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:text='@{bean.firstName+" "+bean.lastName}'/>
+
+
+                    <LinearLayout
+                        android:id="@+id/ll_rating"
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{(v)->vm.onClick(v)}"
+                        android:background="?attr/selectableItemBackground"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:textSize="@dimen/dp15"
+                            android:text="@string/rating"/>
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_gravity="left"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                        <RatingBar
+                            android:id="@+id/myRatingBar"
+                            style="?android:attr/ratingBarStyleSmall"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:isIndicator="true"
+                            android:numStars="1"
+                            android:rating="1"
+                            android:theme="@style/RatingBar" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text='@{" ("+bean.avg_rating+") "}'
+                            android:textColor="@color/edit_text"
+                            />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_total_projects"
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:onClick="@{(v)->vm.onClick(v)}"
+                        android:background="?attr/selectableItemBackground"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:textSize="15dp"
+                            android:text="@string/total_projects"/>
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text='@{bean.total_completed_jobs+""}'
+                            android:textColor="@color/edit_text"
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_projects"
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{(v)->vm.onClick(v)}"
+                        android:background="?attr/selectableItemBackground"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15dp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:text="@string/projects_completed_with_us"/>
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text='@{bean.total_completed_jobs_us+""}'
+                            android:textColor="@color/edit_text"
+                            />
+
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:id="@+id/ll_description"
+                        android:layout_width="wrap_content"
+                        android:layout_gravity="left"
+                        android:layout_marginTop="@dimen/dp10"
+                        android:layout_height="wrap_content"
+                        android:onClick="@{(v)->vm.onClick(v)}"
+                        android:background="?attr/selectableItemBackground"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15dp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold"
+                            android:text="@string/description"/>
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text='@{bean.description}'
+                            android:textColor="@color/edit_text"
+                            />
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

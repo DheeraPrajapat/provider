@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="vm"
+            type="com.marius.valeyou_admin.ui.activity.dashboard.profile.certificate.AddCertificateActivityVM" />
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/back_gradient_view"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_top"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <include android:id="@+id/header"
+                layout="@layout/toolbar_layout"
+                app:vm="@{vm}" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_below="@+id/ll_top"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:layout_marginTop="@dimen/dp200"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp100"
+                android:background="@color/white"
+                android:layout_marginTop="@dimen/dp150"
+                android:rotation="-10"
+                android:layout_marginStart="-50dp"
+                android:layout_marginEnd="-50dp"
+                />
+
+        </RelativeLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/ll_top"
+            android:layout_marginTop="@dimen/dp40"
+            android:layout_marginStart="@dimen/dp10"
+            android:layout_marginEnd="@dimen/dp10"
+            android:layout_marginBottom="@dimen/dp10"
+            app:cardCornerRadius="@dimen/dp10">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextViewStyleSubTitleRegular"
+                    android:textColor="@color/grey"
+                    android:padding="@dimen/dp12"
+                    android:text="@string/addcertificate"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp1"
+                    android:background="@color/divider"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    style="@style/TextViewStyleSubTitleRegular"
+                    android:textColor="@color/grey"
+                    android:padding="@dimen/dp10"
+                    android:text="@string/title"/>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp5"
+                    app:cardCornerRadius="@dimen/dp10">
+
+                    <EditText
+                        android:id="@+id/et_title"
+                        android:layout_width="match_parent"
+                        style="@style/EditText_Regular"
+                        android:textColor="@color/grey"
+                        android:padding="@dimen/dp10"
+                        android:background="@color/full_transparent"
+                        android:hint="@string/enter_bref_des"/>
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    style="@style/TextViewStyleSubTitleRegular"
+                    android:textColor="@color/grey"
+                    android:padding="@dimen/dp10"
+                    android:text="@string/description"/>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp5"
+                    app:cardCornerRadius="@dimen/dp10">
+
+                    <EditText
+                        android:id="@+id/et_desc"
+                        android:layout_width="match_parent"
+                        style="@style/EditText_Regular"
+                        android:textColor="@color/grey"
+                        android:padding="@dimen/dp10"
+                        android:background="@color/full_transparent"
+                        android:hint="@string/enter_description"/>
+
+                </androidx.cardview.widget.CardView>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    style="@style/TextViewStyleSubTitleRegular"
+                    android:textColor="@color/grey"
+                    android:padding="@dimen/dp10"
+                    android:text="@string/upload_certificate"/>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/dp5"
+                    app:cardCornerRadius="@dimen/dp10">
+
+                    <EditText
+                        android:id="@+id/et_photo"
+                        android:layout_width="match_parent"
+                        style="@style/EditText_Regular"
+                        android:textColor="@color/grey"
+                        android:padding="@dimen/dp10"
+                        android:onClick="@{v->vm.onClick(v)}"
+                        android:focusable="false"
+                        android:drawableRight="@drawable/upload_icon"
+                        android:background="@color/full_transparent"
+                        android:hint="@string/addcertificate"/>
+
+                </androidx.cardview.widget.CardView>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="30sp"
+                    android:layout_gravity="center_horizontal">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_save"
+                        android:layout_width="@dimen/dp100"
+                        android:layout_height="@dimen/dp40"
+                        android:layout_margin="@dimen/dp10"
+                        android:onClick="@{v->vm.onClick(v)}"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardCornerRadius="@dimen/dp20">
+
+                        <TextView
+                            android:text="@string/save"
+                            android:textColor="@color/white"
+                            android:layout_gravity="center"
+                            style="@style/TextViewStyleSubTitleRegular"/>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="@dimen/dp100"
+                        android:layout_height="@dimen/dp40"
+                        android:layout_margin="@dimen/dp10"
+                        app:cardBackgroundColor="@color/colorPrimary"
+                        app:cardCornerRadius="@dimen/dp20">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/cv_cancel"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp38"
+                            android:layout_margin="@dimen/dp1"
+                            android:onClick="@{v->vm.onClick(v)}"
+                            app:cardBackgroundColor="@color/white"
+                            app:cardCornerRadius="@dimen/dp18">
+                            <TextView
+                                android:text="@string/cancel"
+                                android:textColor="@color/grey"
+                                android:layout_gravity="center"
+                                style="@style/TextViewStyleSubTitleRegular"/>
+                        </androidx.cardview.widget.CardView>
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+</layout>

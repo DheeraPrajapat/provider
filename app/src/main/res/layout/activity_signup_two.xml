@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="vm"
+            type="com.marius.valeyou_admin.ui.activity.signup.signuptwo.SignupTwoActivityVM" />
+    </data>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:paddingBottom="@dimen/dp30"
+       >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/iv_top"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp170"
+            android:src="@drawable/login_top_logo"
+            android:scaleType="fitXY"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp180">
+
+            <ImageView
+                android:layout_width="@dimen/dp120"
+                android:layout_height="@dimen/dp80"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/dp40"
+                android:src="@drawable/app_logo" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_login"
+            android:layout_below="@+id/iv_top"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/white"
+            android:padding="@dimen/dp10">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp50"/>
+
+            <LinearLayout
+                android:layout_marginTop="@dimen/dp15"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    style="@style/TextViewStyleSubTitleRegular"
+                    android:text="@string/date_of_birth"
+                    android:textColor="@color/grey"
+                    android:textSize="@dimen/sp14"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1">
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+
+
+                            <EditText
+                                android:id="@+id/etday"
+                                android:layout_width="match_parent"
+                                android:hint="@string/day"
+                                android:textSize="@dimen/sp14"
+                                android:layout_marginRight="5dp"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/sfpro_regular"
+                                android:textColor="@color/edit_text"
+                                android:layout_alignParentEnd="true"
+                                android:singleLine="true"
+                                android:padding="15dp"
+                                android:inputType="number"
+                                android:background="@android:color/transparent"
+                                />
+
+                        </FrameLayout>
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp1"
+                            android:background="@color/grey_light"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:text="/"
+                        android:layout_gravity="center"/>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1">
+
+                        <EditText
+                            android:id="@+id/etMonth"
+                            android:layout_width="match_parent"
+                            android:text="@string/month"
+                            android:focusable="false"
+                            android:onClick="@{v->vm.onClick(v)}"
+                            android:editable="false"
+                            android:textSize="@dimen/sp14"
+                            android:layout_marginRight="5dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/sfpro_regular"
+                            android:textColor="@color/edit_text"
+                            android:layout_alignParentEnd="true"
+                            android:singleLine="true"
+                            android:padding="15dp"
+                            android:background="@android:color/transparent"
+                            />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp1"
+                            android:background="@color/grey_light"/>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:text="/"
+                        android:layout_gravity="center"/>
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1">
+
+                        <EditText
+                            android:id="@+id/etYear"
+                            android:layout_width="match_parent"
+                            android:text="@string/year"
+                            android:focusable="false"
+                            android:textSize="@dimen/sp14"
+                            android:editable="false"
+                            android:onClick="@{v->vm.onClick(v)}"
+                            android:layout_marginRight="5dp"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/sfpro_regular"
+                            android:textColor="@color/edit_text"
+                            android:layout_alignParentEnd="true"
+                            android:singleLine="true"
+                            android:padding="15dp"
+                            android:background="@android:color/transparent"
+                            />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/dp1"
+                            android:background="@color/grey_light"/>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/TextLabel"
+                android:layout_margin="@dimen/dp5"
+                android:layout_marginTop="10dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_zip_code"
+                    style="@style/EditText_Regular"
+                    android:inputType="textEmailAddress"
+                    android:hint="@string/zip_code"
+                    android:paddingEnd="@dimen/dp10"
+                    android:text="" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                style="@style/TextViewStyleSubTitleRegular"
+                android:text="@string/address"
+                android:layout_marginRight="7dp"
+                android:layout_marginLeft="7dp"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/sp14"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dp"
+                android:layout_marginRight="7dp"
+                android:orientation="horizontal">
+
+
+                <com.seatgeek.placesautocomplete.PlacesAutocompleteTextView
+                    android:id="@+id/et_address"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:maxLines="3"
+                    android:paddingLeft="10sp"
+                    android:textSize="@dimen/dp14"
+                    android:backgroundTint="@color/white"
+                    android:textColor="@color/black"
+                    app:pacv_languageCode="en"
+                    app:pacv_resultType="no_type"
+                    app:pacv_clearEnabled="true"
+                    app:pacv_googleMapsApiKey="AIzaSyA1QFn0_Ba7zVSEt8Sng528LXZuEn9JcMc"
+                    app:pacv_adapterClass="com.marius.valeyou_admin.util.TestPlacesAutocompleteAdapter"/>
+
+                <ImageView
+                    android:id="@+id/iv_location"
+                    android:layout_width="@dimen/dp30"
+                    android:layout_height="match_parent"
+                    android:padding="5sp"
+                    android:visibility="gone"
+                    android:onClick="@{(v)->vm.onClick(v)}"
+                    android:src="@drawable/location_icon"/>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="7dp"
+                android:layout_marginRight="7dp"
+                android:background="@color/black"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:theme="@style/TextLabel"
+                android:layout_margin="@dimen/dp5">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_house_number"
+                    style="@style/EditText_Regular"
+                    android:inputType="textEmailAddress"
+                    android:hint="@string/house_no"
+                    android:paddingEnd="@dimen/dp10"
+                    android:text="" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/TextLabel"
+                    android:layout_margin="@dimen/dp5">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_appartment_number"
+                        style="@style/EditText_Regular"
+                        android:inputType="textEmailAddress"
+                        android:hint="@string/appartment"
+                        android:paddingEnd="@dimen/dp10"
+                        android:text="" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+            </LinearLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/TextLabel"
+                android:layout_margin="@dimen/dp5">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_street"
+                    style="@style/EditText_Regular"
+                    android:inputType="textEmailAddress"
+                    android:hint="@string/street"
+                    android:paddingEnd="@dimen/dp10"
+                    android:text="" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content">
+
+                    <Spinner
+                        android:id="@+id/spState"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:visibility="invisible"
+                        android:background="@android:color/transparent"
+                        android:fontFamily="@font/sfpro_regular"
+                        android:singleLine="true"
+                        android:textColor="@color/edit_text"
+                        android:textSize="@dimen/sp14" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/TextLabel"
+                    android:layout_margin="@dimen/dp5">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_state"
+                        android:onClick="@{(v)->vm.onClick(v)}"
+                        style="@style/EditText_Regular"
+                        android:inputType="textEmailAddress"
+                        android:hint="@string/select_state"
+                        android:paddingEnd="@dimen/dp10"
+                        android:text="" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                </FrameLayout>
+
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content">
+
+                    <Spinner
+                        android:id="@+id/spCity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:visibility="invisible"
+                        android:background="@android:color/transparent"
+                        android:fontFamily="@font/sfpro_regular"
+                        android:singleLine="true"
+                        android:textColor="@color/edit_text"
+                        android:textSize="@dimen/sp14" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/TextLabel"
+                    android:layout_margin="@dimen/dp5">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_city"
+                        android:onClick="@{(v)->vm.onClick(v)}"
+                        style="@style/EditText_Regular"
+                        android:inputType="textEmailAddress"
+                        android:hint="@string/select_city"
+                        android:paddingEnd="@dimen/dp10"
+                        android:text="" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                </FrameLayout>
+
+
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvStates"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:layout_height="wrap_content"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvCities"
+                    android:layout_width="match_parent"
+                    android:visibility="gone"
+                    android:layout_height="wrap_content"/>
+
+            </FrameLayout>
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/TextLabel"
+                android:layout_margin="@dimen/dp5">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/et_description"
+                    style="@style/EditText_Regular"
+                    android:inputType="textEmailAddress"
+                    android:hint="@string/description"
+                    android:paddingEnd="@dimen/dp10"
+                    android:text="" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btnSignup"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp40"
+                android:layout_gravity="center_vertical"
+                style="@style/RectangleButtonStyle"
+                android:onClick="@{(v)->vm.onClick(v)}"
+                android:text="@string/next"
+                android:layout_margin="@dimen/dp5"
+                android:textColor="@color/white"
+                android:foreground="?selectableItemBackground"
+                android:textSize="@dimen/sp14" />
+
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:onClick="@{()->vm.onBack()}"
+            android:foreground="?selectableItemBackground"
+            android:layout_width="@dimen/dp50"
+            android:layout_height="@dimen/dp50"
+            android:layout_marginTop="@dimen/dp24"
+            android:src="@drawable/ic_back_icon"
+            android:padding="@dimen/dp15"/>
+
+    </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="300dp"/>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</layout>

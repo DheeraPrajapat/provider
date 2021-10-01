@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="callback"
+            type="com.marius.valeyou_admin.di.base.adapter.SimpleRecyclerViewAdapter.SimpleCallback" />
+        <variable
+            name="bean"
+            type="com.marius.valeyou_admin.data.beans.base.MoreBean" />
+    </data>
+    <androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp1">
+
+        <TextView
+            android:layout_width="match_parent"
+            style="@style/TextViewStyleSubTitleRegular"
+            android:text="@{bean.name}"
+            android:drawableRight="@drawable/ic_arrow_down"
+            android:padding="@dimen/dp10"
+            android:textColor="@color/grey"/>
+
+    </androidx.cardview.widget.CardView>
+</layout>

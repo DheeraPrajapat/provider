@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="type"
+            type="Integer" />
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="vm"
+            type="com.marius.valeyou_admin.ui.fragment.home.HomeFragmentVM" />
+
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="10"
+        android:background="@color/white_trans">
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="10"
+            android:background="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="7"
+                android:orientation="vertical"
+                android:background="@color/white">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:text="@string/filter"
+                        android:padding="@dimen/dp15"
+                        style="@style/TextViewStyleSubTitleRegular"/>
+
+                    <ImageView
+                        android:id="@+id/iv_cancel"
+                        android:onClick="@{v->vm.onClick(v)}"
+                        android:layout_width="@dimen/dp30"
+                        android:layout_height="@dimen/dp30"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/ic_cancel_icon"
+                        android:layout_marginEnd="@dimen/dp10"/>
+
+                </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp1"
+                    android:background="@color/divider"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="10">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="3">
+
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_filter_cat"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:overScrollMode="never"
+                            />
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"/>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/apply"
+                            android:layout_width="90dp"
+                            android:layout_height="@dimen/dp40"
+                            android:layout_margin="@dimen/dp10"
+                            android:onClick="@{v->vm.onClick(v)}"
+                            app:cardBackgroundColor="@color/colorPrimary"
+                            app:cardCornerRadius="@dimen/dp20">
+
+                            <TextView
+                                android:text="@string/apply"
+                                android:textColor="@color/white"
+                                android:layout_gravity="center"
+                                style="@style/TextViewStyleSubTitleRegular"/>
+
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+                    <View
+                        android:layout_width="@dimen/dp1"
+                        android:layout_height="match_parent"
+                        android:background="@color/divider"/>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="7"
+                        android:orientation="vertical">
+
+                        <include android:id="@+id/ftPrice"
+                            layout="@layout/map_price_filter"
+                            app:vm="@{vm}"
+                            android:visibility="@{type==1?View.VISIBLE:View.GONE}"/>
+                        <include
+                            android:id="@+id/ft_distance"
+                            layout="@layout/map_distance_filter"
+                            app:vm="@{vm}"
+                            android:visibility="@{type==3?View.VISIBLE:View.GONE}"/>
+
+                        <include
+                            android:id="@+id/ft_state"
+                            layout="@layout/map_region_filter"
+                            app:vm="@{vm}"
+                            android:visibility="@{type==4?View.VISIBLE:View.GONE}"/>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+
+
+            </LinearLayout>
+
+            <com.github.ybq.android.spinkit.SpinKitView
+                android:id="@+id/spin_kit"
+                style="@style/SpinKitView.Large.ThreeBounce"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="150dp"
+                android:visibility="gone"
+                app:SpinKit_Color="?textColorTheme" />
+
+        </FrameLayout>
+
+
+
+    </LinearLayout>
+</layout>

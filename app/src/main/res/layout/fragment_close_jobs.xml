@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="check"
+            type="boolean" />
+        <variable
+            name="vm"
+            type="com.marius.valeyou_admin.ui.fragment.myjob.upcoming.opendetails.closejobs.CloseJobsFragmentVM" />
+    </data>
+    <FrameLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_upcoming"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="never"
+            android:layout_marginEnd="@dimen/dp10"
+            android:layout_marginStart="@dimen/dp10"
+            android:scrollbars="none"
+            />
+
+        <TextView
+            android:id="@+id/txt_no_job"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No Job Found"
+            android:visibility="gone"
+            android:layout_gravity="center"/>
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:id="@+id/spin_kit"
+            style="@style/SpinKitView.Large.ThreeBounce"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="300dp"
+            android:layout_marginLeft="150dp"
+            android:visibility="@{check?View.VISIBLE:View.GONE}"
+            app:SpinKit_Color="?textColorTheme" />
+
+
+    </FrameLayout>
+</layout>

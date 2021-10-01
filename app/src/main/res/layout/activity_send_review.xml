@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="vm"
+            type="com.marius.valeyou_admin.ui.activity.dashboard.review.sendreview.SendReviewActivityVM" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/back_gradient_view">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:layout_marginTop="@dimen/dp150"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp100"
+                android:background="@color/white"
+                android:layout_marginTop="@dimen/dp100"
+                android:rotation="-10"
+                android:layout_marginStart="-50dp"
+                android:layout_marginEnd="-50dp"
+                />
+
+        </RelativeLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cv_top"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dp60"
+            android:layout_marginStart="@dimen/dp10"
+            android:layout_marginEnd="@dimen/dp10"
+            android:layout_marginBottom="@dimen/dp10"
+            app:cardCornerRadius="@dimen/dp10">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp10"
+                android:orientation="vertical">
+
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="@dimen/dp70"
+                    android:layout_height="@dimen/dp70"
+                    app:cardCornerRadius="@dimen/dp35"
+                    android:layout_margin="@dimen/dp20"
+                    android:layout_gravity="center_horizontal">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/divider"/>
+
+                </androidx.cardview.widget.CardView>
+
+                <TextView
+                    style="@style/TextViewStyleSubTitleRegular"
+                    android:text="Standard Pickup"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="@dimen/sp18"
+                    android:textColor="@color/grey"/>
+
+                <TextView
+                    style="@style/TextViewStyleSubTitleRegular"
+                    android:layout_marginTop="@dimen/dp5"
+                    android:textColor="@color/grey"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Job Completed" />
+
+                <RatingBar
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/RatingBar"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="@dimen/dp15"
+                    android:rating="4.5"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp100"
+                    android:layout_margin="@dimen/dp10"
+                    style="@style/EditText_Regular"
+                    android:padding="@dimen/dp10"
+                    android:text="Loved it!"
+                    android:gravity="top"
+                    android:background="@drawable/back_round_corner7"/>
+
+                <Button
+                    android:id="@+id/btn_pay"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp45"
+                    android:layout_gravity="center_vertical"
+                    style="@style/RectangleButtonStyle"
+                    android:onClick="@{(v)->vm.onClick(v)}"
+                    android:text="Send"
+                    android:layout_margin="@dimen/dp10"
+                    android:textColor="@color/white"
+                    android:foreground="?selectableItemBackground"
+                    android:textSize="@dimen/sp14" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <include android:id="@+id/header"
+            layout="@layout/toolbar_transparent"
+            app:vm="@{vm}"/>
+
+    </RelativeLayout>
+
+</layout>

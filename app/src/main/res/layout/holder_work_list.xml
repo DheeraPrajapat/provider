@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="android.view.View"/>
+
+        <variable
+            name="bean"
+            type="com.marius.valeyou_admin.data.beans.AddWorkModel" />
+
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:padding="@dimen/dp3"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:padding="10dp"
+            android:text='@{bean.title}'
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:padding="10dp"
+            android:layout_marginRight="@dimen/dp10"
+            android:text='@{bean.price + " brl"}'
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/delete"
+            android:layout_width="wrap_content"
+            android:padding="10dp"
+            android:text="Delete"
+            android:textColor="@color/red"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</layout>

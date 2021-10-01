@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="check"
+            type="boolean" />
+
+        <variable
+            name="cat"
+            type="boolean" />
+
+        <variable
+            name="vm"
+            type="com.marius.valeyou_admin.ui.activity.dashboard.profile.myservices.MyServicesActivityVM" />
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/iv_top"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp170"
+           android:background="@color/colorPrimaryDark"
+            android:scaleType="fitXY" />
+
+        <RelativeLayout
+            android:id="@+id/ll_login"
+            android:layout_marginTop="@dimen/dp60"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/dp10"
+            android:layout_marginEnd="@dimen/dp10"
+            android:background="@drawable/back_round_corner4"
+            android:padding="@dimen/dp10">
+
+            <LinearLayout
+                android:id="@+id/ll_top_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/ll_tab"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp50"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_remote_job"
+                        android:layout_width="wrap_content"
+                        android:layout_marginLeft="@dimen/dp20"
+                        android:layout_height="@dimen/dp40"
+                        android:layout_marginEnd="@dimen/dp10"
+                        app:cardCornerRadius="@dimen/dp5"
+                        android:foreground="?selectableItemBackground"
+                        android:onClick="@{v->vm.onClick(v)}"
+                        app:cardBackgroundColor="@{cat?@color/white:@color/colorPrimary}">
+
+                        <TextView
+                            style="@style/TextViewStyleSubTitleRegular"
+                            android:text="@string/remotejob"
+                            android:layout_marginLeft="@dimen/dp20"
+                            android:layout_marginRight="@dimen/dp20"
+                            android:layout_gravity="center"
+                            android:textColor="@{cat?@color/colorPrimary:@color/white}"
+                            />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_local_job"
+                        android:layout_width="wrap_content"
+                        android:layout_marginRight="@dimen/dp20"
+                        android:layout_height="@dimen/dp40"
+                        android:layout_marginStart="@dimen/dp10"
+                        app:cardCornerRadius="@dimen/dp5"
+                        android:foreground="?selectableItemBackground"
+                        android:onClick="@{v->vm.onClick(v)}"
+                        app:cardBackgroundColor="@{cat?@color/colorPrimary:@color/white}">
+
+                        <TextView
+                            style="@style/TextViewStyleSubTitleRegular"
+                            android:text="@string/localjobs"
+                            android:layout_marginLeft="@dimen/dp20"
+                            android:layout_marginRight="@dimen/dp20"
+                            android:layout_gravity="center"
+                            android:textColor="@{cat?@color/white:@color/colorPrimary}"
+                            />
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+<!--                <TextView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="20dp"-->
+<!--                    android:text="@string/localjobs"-->
+<!--                    android:textAlignment="center"/>-->
+
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_category"
+                android:layout_below="@+id/ll_top_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:overScrollMode="never"
+                android:layout_marginBottom="@dimen/dp60"
+                android:layout_marginTop="10sp"
+                android:layout_above="@+id/btn_next"
+                android:scrollbars="none"/>
+
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp40"
+                android:layout_gravity="center_vertical"
+                style="@style/RectangleButtonStyle"
+                android:onClick="@{(v)->vm.onClick(v)}"
+                android:text="@string/save"
+                android:visibility="visible"
+                android:layout_margin="@dimen/dp10"
+                android:textColor="@color/white"
+                android:layout_alignParentBottom="true"
+                android:foreground="?selectableItemBackground"
+                android:textSize="@dimen/sp14" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <include android:id="@+id/header"
+                layout="@layout/toolbar_layout"
+                app:vm="@{vm}"/>
+        </LinearLayout>
+
+        <com.github.ybq.android.spinkit.SpinKitView
+            android:id="@+id/spin_kit"
+            style="@style/SpinKitView.Large.ThreeBounce"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="@{check?View.VISIBLE:View.GONE}"
+            app:SpinKit_Color="?textColorTheme" />
+
+
+    </RelativeLayout>
+</layout>

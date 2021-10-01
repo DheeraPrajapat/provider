@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="category"
+            type="com.marius.valeyou_admin.data.beans.categoriesBean.CategoryDataBean" />
+
+        <variable
+            name="callback"
+            type="com.marius.valeyou_admin.ui.activity.dashboard.profile.myservices.MyServicesAdapter.ProductCallback" />
+
+    </data>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp10"
+        android:orientation="vertical">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_item"
+        android:foreground="?selectableItemBackground"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/dp5"
+        android:background='@{category.isCheck == 1?@drawable/green_stroke:@drawable/white_background_shape}'
+        android:layout_margin="@dimen/dp5">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="@dimen/dp15"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/iv_icon"
+                android:layout_width="@dimen/dp40"
+                android:layout_height="@dimen/dp40"
+                android:padding="@dimen/dp5"
+                android:layout_gravity="center"
+                app:image_url="@{category.image}"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                style="@style/TextViewStyleSubTitleRegular"
+                android:text="@{category.name}"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:layout_toRightOf="@+id/iv_icon"
+                android:layout_centerVertical="true"
+                android:paddingStart="@dimen/dp10"
+                android:textColor="@color/black"
+                />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/addUpdateBtn"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp25"
+            android:layout_gravity="center|bottom"
+            android:layout_marginLeft="20dp"
+            android:visibility="gone"
+            android:text='@{category.price.equalsIgnoreCase("")?"Add Price":category.price+" Brl"}'
+            android:textSize="@dimen/dp10"
+            android:layout_marginBottom="2dp"
+            android:textColor="@color/place_autocomplete_prediction_primary_text"
+            android:fontFamily="@font/sfpro_regular"
+            android:layout_marginRight="@dimen/dp20"
+            android:background="@drawable/background_shape_grey"/>
+
+    </LinearLayout>
+
+
+
+
+
+</layout>

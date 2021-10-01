@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="bean"
+            type="com.marius.valeyou_admin.data.beans.base.MoreBean" />
+
+        <variable
+            name="callback"
+            type="com.marius.valeyou_admin.di.base.adapter.SimpleRecyclerViewAdapter.SimpleCallback" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/ll_items"
+        android:onClick="@{v->callback.onItemClick(v,bean)}"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <CheckBox
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/sfpro_regular"
+            android:textSize="@dimen/sp12"
+            android:focusableInTouchMode="false"
+            android:focusable="false"
+            android:text="@{bean.name}"
+            android:textColor="@color/grey"/>
+    </LinearLayout>
+</layout>

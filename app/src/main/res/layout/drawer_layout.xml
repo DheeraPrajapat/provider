@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View"/>
+        <variable
+            name="check"
+            type="boolean" />
+
+        <variable
+            name="vm"
+            type="com.marius.valeyou_admin.di.base.viewmodel.BaseActivityViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:background="@color/colorPrimary"
+            android:padding="10dp">
+
+            <FrameLayout
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/doted_circle"
+              >
+
+        <com.marius.valeyou_admin.util.glide.CircleImageView
+            android:id="@+id/progileImg"
+            android:layout_width="@dimen/dp60"
+            android:clickable="true"
+            android:layout_gravity="center"
+            android:layout_height="@dimen/dp60"
+            android:src="@drawable/placeholder"/>
+
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="@dimen/dp10"
+                android:background="?attr/selectableItemBackground"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Welcome,"
+                    android:textSize="12sp"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/sfpro_bold"/>
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sanjeev Sharma"
+                    android:textSize="15sp"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="@dimen/dp1"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/sfpro_bold"/>
+
+                <TextView
+                    android:id="@+id/tv_view_profile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="View Profile"
+                    android:textSize="14sp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:clickable="true"
+                    android:layout_marginTop="5dp"
+                    android:visibility="visible"
+                    android:background="?attr/selectableItemBackground"
+                    android:textColor="@color/white"
+                    android:layout_marginLeft="@dimen/dp10"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/sfpro_bold"/>
+
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/close_drawer"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_margin="5dp"
+                android:clickable="true"
+                android:padding="5dp"
+                android:background="@drawable/doted_circle"
+               android:src="@drawable/ic_delete"
+                android:textColor="@color/red"/>
+
+        </LinearLayout>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:cardCornerRadius="@dimen/dp20"
+            android:layout_marginTop="@dimen/dp110"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="10sp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                   android:text="Account"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/sfpro_regular"
+                    android:padding="10sp"
+                    android:textColor="@color/black"/>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_menulist"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+           />
+
+        <TextView
+            android:id="@+id/tv_app_version"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp10"
+            />
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+    </FrameLayout>
+
+</layout>

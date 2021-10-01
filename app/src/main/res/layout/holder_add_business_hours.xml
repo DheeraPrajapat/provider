@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+
+        <variable
+            name="bean"
+            type="com.marius.valeyou_admin.data.beans.business.BusinessHoursModel" />
+
+        <variable
+            name="callback"
+            type="com.marius.valeyou_admin.ui.activity.dashboard.profile.businesshours.BusinessHoursAdapter.ProductCallback" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/dp5">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <TextView
+            style="@style/TextViewStyleSubTitleRegular"
+            android:text='@{bean.day}'
+            android:textColor="@color/grey"
+            android:padding="@dimen/dp10"/>
+
+
+            <CheckBox
+                android:id="@+id/checkboxDayOff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/sfpro_regular"
+                android:text="Mark Off"
+                android:textColor="@color/edit_text"
+                android:layout_gravity="right"/>
+
+        </FrameLayout>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp5">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/ll_time_item"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp40"
+                    >
+
+                    <ImageView
+                        android:layout_width="@dimen/dp40"
+                        android:layout_height="@dimen/dp40"
+                        android:padding="5sp"
+                        android:src="@drawable/ic_clock_green"
+                        android:background="@color/divider"/>
+
+                    <TextView
+                        android:id="@+id/finalTimeTxtView"
+                        android:text="Select Time"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        style="@style/TextViewStyleSubTitleRegular"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="@dimen/dp10"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5sp"
+                        android:src="@drawable/ic_arrow_down_icon"
+                        />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:id="@+id/ll_editTimeView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:visibility="visible">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_fromTimeView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5sp"
+                        android:padding="5sp"
+                        app:cardCornerRadius="5sp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5sp"
+                            android:layout_marginRight="5sp"
+                            android:paddingLeft="5sp"
+                            android:paddingRight="5sp">
+
+                            <TextView
+                                android:id="@+id/mHoursFromTime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/blue_stroke"
+                                android:padding="7sp"
+                                android:text="08"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5sp"
+                                android:layout_marginRight="5sp"
+                                android:paddingTop="7sp"
+                                android:paddingBottom="7sp"
+                                android:text=":"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="25sp" />
+
+                            <TextView
+                                android:id="@+id/mMinutesFromTime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/blue_stroke"
+                                android:padding="7sp"
+                                android:text="00"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="15sp" />
+
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10sp"
+                        android:layout_marginRight="10sp"
+                        android:src="@drawable/ic_arrow_right" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_toTimeView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5sp"
+                        android:padding="5sp"
+                        app:cardCornerRadius="5sp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5sp"
+                            android:layout_marginRight="5sp"
+                            android:paddingLeft="5sp"
+                            android:paddingRight="5sp">
+
+                            <TextView
+                                android:id="@+id/mHoursToTime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/blue_stroke"
+                                android:padding="7sp"
+                                android:text="06"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="15sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5sp"
+                                android:layout_marginRight="5sp"
+                                android:paddingTop="7sp"
+                                android:paddingBottom="7sp"
+                                android:text=":"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="25sp" />
+
+                            <TextView
+                                android:id="@+id/mMinutesToTime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/blue_stroke"
+                                android:padding="7sp"
+                                android:text="00"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="15sp" />
+
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+    </LinearLayout>
+</layout>
